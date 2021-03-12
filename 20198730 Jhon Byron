@@ -8,7 +8,7 @@ namespace ConsoleApp7
         {
             int opcion = 0, ced, cant;
             string name;
-            int[] dinero = new int[1] { 20000 };
+            int[] dinero = new int[1] { 50000 };
             do
             {
 
