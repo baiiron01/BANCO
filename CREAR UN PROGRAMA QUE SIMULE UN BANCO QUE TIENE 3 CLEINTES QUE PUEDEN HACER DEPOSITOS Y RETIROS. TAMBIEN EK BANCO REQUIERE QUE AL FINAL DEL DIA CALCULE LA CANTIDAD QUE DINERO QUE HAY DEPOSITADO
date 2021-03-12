@@ -1,0 +1,106 @@
+using System;
+
+namespace ConsoleApp7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int opcion = 0, ced, cant;
+            string name;
+            int[] dinero = new int[1] { 20000 };
+            do
+            {
+
+                menu();
+
+
+                switch (opcion)
+                {
+                    case 1:
+                        Console.Clear();      
+                        Console.Write("DIGITE CEDULA SIN GUION:  ");
+                        ced = int.Parse(Console.ReadLine());
+                        Console.Write("DIGITE SU NOMBRE: ");
+                        name = Console.ReadLine();
+                        Console.Write("CATIDAD A DEPOSITAR:  ");
+                        cant = int.Parse(Console.ReadLine());
+
+
+                        dinero[0] += cant;
+
+                        Console.WriteLine("DEPOSITO REALIZADO");
+                        Console.WriteLine($"GRACIAS {name} DEPOSITO REALIZADO DE: {cant}");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Console.WriteLine("PARA CONTINUAR ENTER");
+
+                        Console.ReadKey();
+                        Console.Clear();
+                        break;
+
+
+                    case 2:
+                        Console.Clear();
+                       Console.Write("DIGITE CEDULA SIN GUION:  ");
+                        ced = int.Parse(Console.ReadLine());
+                        Console.Write("DIGITE SU NOMBRE: ");
+                        name = Console.ReadLine();
+
+                        Console.Write("CATIDAD A RETIRAR:  ");
+                        cant = int.Parse(Console.ReadLine());
+
+
+                        dinero[0] -= cant;
+                        if (dinero[0] > 0)
+                        {
+                            Console.WriteLine("RETIRO REALIZADO");
+                            Console.WriteLine($"GRACIAS {name} RETIRO REALIZADO DE: {cant}");
+                            Console.WriteLine();
+                            Console.WriteLine();
+                            Console.WriteLine("PARA CONTINUAR ENTER");
+                        }
+                        else
+                        {
+                            dinero[0] += cant;
+                            Console.WriteLine("EXCEDE EL LIMITE DE RETIRO");
+                           Console.WriteLine("PARA CONTINUAR ENTER");
+                        }
+
+                        Console.ReadKey();
+                        Console.Clear();
+
+                        break;
+                    case 3:
+                        Console.Clear();
+                      Console.WriteLine($"CANTIDAD DE DINERO ES {dinero[0]}");
+
+                        Console.WriteLine(" CONTINUAR (ENTER)");
+                        Console.ReadKey();
+                        break;
+                    default:
+                        Console.WriteLine("NO ES VALIDO");
+                        break;
+
+                }
+            }
+            while (opcion != 3);
+
+            void menu()
+            {
+       
+                Console.WriteLine("BIENVENIDO");
+                Console.WriteLine("ELEGIR OPCION");
+                Console.WriteLine(" 1). DEPOSITO ");
+                Console.WriteLine(" 2). RETIRO");
+                Console.WriteLine(" 3). SALIR");
+          
+                opcion = int.Parse(Console.ReadLine());
+
+            }
+
+
+        }
+
+    }
+}
